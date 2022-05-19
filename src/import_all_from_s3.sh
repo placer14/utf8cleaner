@@ -18,13 +18,14 @@ export SCHEMA=lily
 export DEBUG=false
 export PROCESS_MIGRATION=false
 export PROCESS_PARALLEL=
-export sanitizedStart=00000000 # smallest possible date
+# TODO: Support date ranges on a model-by-model basis
+export sanitizedStart=0 # smallest possible date
 export sanitizedEnd=99991231 # largest possible date
 
 usage() {
 	cat <<-EOF
 		
-		Usage: $0 [-hdi] r-c DATABASEURL] [-s STARTDATE] [-e ENDDATE] [-p PARALLEL_INSERTS]
+		Usage: $0 [-hdi] [-c DATABASEURL] [-s STARTDATE] [-e ENDDATE] [-p PARALLEL_INSERTS]
 		
 		  -b  a begin date from which to begin importing data (inclusive) (default: $sanitizedStart)
 		      Begin condition is checked internally by parsing arg with
